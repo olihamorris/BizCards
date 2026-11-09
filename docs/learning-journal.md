@@ -58,3 +58,30 @@
 - Run the Deck List screen on my phone and confirm it works.
 - Commit and push the code to GitHub.
 - Add a second screen and navigation between screens.
+
+## 08 November 2026 - Session 3: Study screen and navigation
+
+**What I worked on**
+- Ran the Deck List screen on my phone and tested adding a card.
+- Added the Navigation library so the app can move between screens.
+- Built the Study screen, where a card flips between its term and definition when tapped.
+- Added the "I knew it" and "Review again" buttons, a score, and a Finished screen with a "Study again" button.
+- Tested every button on my phone, then committed and pushed the code to GitHub.
+
+**What I learned**
+- Navigation in Compose uses a NavController and a NavHost. The NavHost lists the screens, and navigate() moves to one.
+- State can be shared between two screens by keeping the list of cards in one place (the parent function) and passing it to both screens.
+- remember and mutableStateOf keep values such as the current card number, the score and whether the card is flipped. When a value changes, the screen updates itself.
+- A new library is added in the dependencies block of the app's build.gradle.kts file, and then the project must be synced with the internet on.
+
+**Problems and how I solved them**
+- Red errors appeared for NavHost and composable ("unresolved reference"). The Navigation line was missing from the dependencies block, because I had typed the material3 line twice by mistake. I replaced the extra line with the Navigation dependency and synced again, and the errors disappeared.
+- A top-level build.gradle.kts and an app-level build.gradle.kts both exist. The dependencies must go in the one inside the app folder.
+
+**Result**
+- Both screens work on my phone. Cards can be added, studied, flipped and scored, and the Back button returns to the card list.
+
+**Next steps**
+- Add a Room database so that cards are still there after the app is closed.
+- Write the README and record the demo video.
+- Submit the module.
