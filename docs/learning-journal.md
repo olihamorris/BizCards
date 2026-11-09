@@ -85,3 +85,34 @@
 - Add a Room database so that cards are still there after the app is closed.
 - Write the README and record the demo video.
 - Submit the module.
+
+## 09 November 2026 - Sessions 4 and 5: Room database
+
+**What I worked on**
+- Added the Room database so that flashcards are saved on the phone and stay after the app is closed.
+- Added the KSP plugin and the Room libraries to the project's build files and synced the project.
+- Created a new file, CardDatabase.kt, with the card table (FlashCard), the DAO (the actions on the table) and the database itself.
+- Changed MainActivity.kt so that the screens read their cards from the database and save new cards into it.
+- Tested on my phone: I added cards, closed the app completely, opened it again, and the cards were still there.
+
+**What I learned**
+- Room saves data in a small database on the phone itself, so it stays when the app is closed or the phone restarts. The data stays on that phone only.
+- Three parts make up a Room database: an Entity (the table), a DAO (the actions such as get all cards and insert), and the Database class.
+- KSP is a tool that reads labels like @Entity and @Dao and writes the long database code for me.
+- A Flow gives the screen the latest list of cards, and the screen updates by itself when a card is saved.
+- Database work runs in the background (a coroutine) so that the screen does not freeze.
+- A file's package line must match its folder, and duplicated lines can cause red errors.
+
+**Problems and how I solved them**
+- After a power cut the project dropped off the recent projects list. I opened it again with Open, chose the BizCards folder and let it import.
+- CardDatabase.kt showed red errors because the package line was written twice. I deleted the extra line and the errors disappeared.
+- The first build failed with "No such host is known (dl.google.com)" because Room's code generator needed a download. I turned the internet on, ran again, and it succeeded.
+- I worked around power cuts by saving often and committing to Git in small steps.
+
+**Result**
+- Cards I add (for example Revenue and Coins) are still there after I close and reopen the app.
+
+**Next steps**
+- Commit and push the Room version to GitHub.
+- Add useful comments to all the code and test everything one more time.
+- Write the README, record the demo video, finish the time log and submit.
